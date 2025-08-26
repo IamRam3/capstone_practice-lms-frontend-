@@ -29,7 +29,7 @@ This frontend works in tandem with a Spring Boot backend (not included here) and
 ---
 
 ## Project Structure
-
+In lms-frontend folder!!
 - `src/components/`  
   React components including `Login`, `Dashboard`, `BookCatalog`, and others
 - `src/App.js`  
