@@ -20,7 +20,15 @@ function App() {
         />
         <Route 
           path="/books"
-          element={isLoggedIn ? <BookCatalog /> : <Navigate to="/login" />}
+          element={
+            isLoggedIn ? (
+              <BookCatalog
+                onLogout={() => setIsLoggedIn(false)}
+              />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         {/* Redirect any unknown URL to login */}
         <Route path="*" element={<Navigate to="/login" />} />

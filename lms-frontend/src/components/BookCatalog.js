@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const MOCK_BOOKS = [
   { id: 1, title: 'Java Programming', author: 'James Gosling', category: 'Programming' },
   { id: 2, title: 'React Explained', author: 'Dan Abramov', category: 'Frontend' },
   { id: 3, title: 'Spring Boot in Action', author: 'Craig Walls', category: 'Backend' },
+  { id: 4, title: 'Java Full Stack', author: 'Bhuvaneswari', category: 'Full-Stack' },
 ];
 
 const BookCatalog = () => {
-  const [books, setBooks] = useState([]);       // Book list
+  const navigate = useNavigate();
+
+  const [books, setBooks] = useState([]);         // Book list
   const [searchTerm, setSearchTerm] = useState(''); // Search input
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -73,9 +77,21 @@ const BookCatalog = () => {
     }
   };
 
+  // Navigate to Dashboard page
+  const goToDashboard = () => {
+    navigate('/dashboard');
+  };
+
+  // Logout user and navigate to login
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    navigate('/login', { replace: true });
+  };
+
   return (
     <div className="container mt-5">
       <h3>Book Catalog</h3>
+
       <input
         type="text"
         className="form-control my-3"
@@ -107,6 +123,17 @@ const BookCatalog = () => {
           ))}
         </tbody>
       </table>
+
+      {/* Navigation Buttons */}
+      <div className="mb-3">
+        <button className="btn btn-primary me-3" onClick={goToDashboard}>
+          Go to Dashboard
+        </button>
+        <button className="btn btn-danger" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+
     </div>
   );
 };
