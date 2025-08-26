@@ -40,26 +40,22 @@ This frontend works in tandem with a Spring Boot backend (not included here) and
 ## Setup & Run
 
 1. **Clone the repository**
-
+```
+git clone https://github.com/IamRam3/capstone_practice-lms-frontend-.git
+```
 2. **Navigate to frontend directory**:
 
 ```
-
 cd capstone_practice-lms-frontend-/lms-frontend
-
 ```
 
 3. **Install dependencies**
 ```
-
 npm install
-
 ```
 4. **Start the React development server**
 ```
-
 npm start
-
 ```
 
 5. **To access the app**
